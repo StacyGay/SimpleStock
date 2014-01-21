@@ -1,0 +1,1 @@
+"C:\Users\Stacy.Gay\Documents\GitHub\SimpleStock\SimpleStock.Web.FrontEnd\Scripts\app\reference.ts" --sourcemap --removeComments --target ES3 --module amd --out app.js

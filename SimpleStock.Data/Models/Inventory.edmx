@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+	<!-- EF Runtime content -->
+	<edmx:Runtime>
+		<!-- SSDL content -->
+		<edmx:StorageModels>
+			<Schema Namespace="Inventory.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012"
+			        xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"
+			        xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+				<EntityContainer Name="InventoryStoreContainer">
+					<EntitySet Name="Users" EntityType="Inventory.Store.Users" store:Type="Tables" Schema="dbo" />
+					<EntitySet Name="Companies" EntityType="Inventory.Store.Companies" store:Type="Tables" Schema="dbo" />
+					<EntitySet Name="Stores" EntityType="Inventory.Store.Stores" store:Type="Tables" Schema="dbo" />
+					<EntitySet Name="Products" EntityType="Inventory.Store.Products" store:Type="Tables" Schema="dbo" />
+					<EntitySet Name="ProductCategories" EntityType="Inventory.Store.ProductCategories" store:Type="Tables"
+					           Schema="dbo" />
+					<EntitySet Name="Inventories" EntityType="Inventory.Store.Inventories" store:Type="Tables" Schema="dbo" />
+					<EntitySet Name="StoreUser" EntityType="Inventory.Store.StoreUser" store:Type="Tables" Schema="dbo" />
+					<AssociationSet Name="CompanyUser" Association="Inventory.Store.CompanyUser">
+						<End Role="Company" EntitySet="Companies" />
+						<End Role="User" EntitySet="Users" />
+					</AssociationSet>
+					<AssociationSet Name="CompanyStore" Association="Inventory.Store.CompanyStore">
+						<End Role="Company" EntitySet="Companies" />
+						<End Role="Store" EntitySet="Stores" />
+					</AssociationSet>
+					<AssociationSet Name="FK_StoreUser_Store" Association="Inventory.Store.FK_StoreUser_Store">
+						<End Role="Store" EntitySet="Stores" />
+						<End Role="StoreUser" EntitySet="StoreUser" />
+					</AssociationSet>
+					<AssociationSet Name="FK_StoreUser_User" Association="Inventory.Store.FK_StoreUser_User">
+						<End Role="User" EntitySet="Users" />
+						<End Role="StoreUser" EntitySet="StoreUser" />
+					</AssociationSet>
+					<AssociationSet Name="StoreProduct" Association="Inventory.Store.StoreProduct">
+						<End Role="Store" EntitySet="Stores" />
+						<End Role="Product" EntitySet="Products" />
+					</AssociationSet>
+					<AssociationSet Name="StoreProductCategory" Association="Inventory.Store.StoreProductCategory">
+						<End Role="Store" EntitySet="Stores" />
+						<End Role="ProductCategory" EntitySet="ProductCategories" />
+					</AssociationSet>
+					<AssociationSet Name="ProductCategoryProduct" Association="Inventory.Store.ProductCategoryProduct">
+						<End Role="ProductCategory" EntitySet="ProductCategories" />
+						<End Role="Product" EntitySet="Products" />
+					</AssociationSet>
+					<AssociationSet Name="ProductInventory" Association="Inventory.Store.ProductInventory">
+						<End Role="Product" EntitySet="Products" />
+						<End Role="Inventory" EntitySet="Inventories" />
+					</AssociationSet>
+				</EntityContainer>
+				<EntityType Name="Users">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+					<Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="200" />
+					<Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="200" />
+					<Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="100" />
+					<Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="100" />
+					<Property Name="CompanyId" Type="int" Nullable="false" />
+				</EntityType>
+				<EntityType Name="Companies">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+					<Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+					<Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="200" />
+					<Property Name="City" Type="nvarchar(max)" Nullable="false" />
+					<Property Name="State" Type="nvarchar" Nullable="false" MaxLength="50" />
+					<Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="20" />
+				</EntityType>
+				<EntityType Name="Stores">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+					<Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+					<Property Name="CompanyId" Type="int" Nullable="false" />
+				</EntityType>
+				<EntityType Name="Products">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+					<Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="500" />
+					<Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+					<Property Name="Units" Type="nvarchar(max)" Nullable="false" />
+					<Property Name="Cost" Type="decimal" Nullable="false" />
+					<Property Name="Price" Type="nvarchar(max)" Nullable="false" />
+					<Property Name="StoreId" Type="int" Nullable="false" />
+					<Property Name="ProductCategoryId" Type="int" Nullable="false" />
+				</EntityType>
+				<EntityType Name="ProductCategories">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+					<Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+					<Property Name="StoreId" Type="int" Nullable="false" />
+				</EntityType>
+				<EntityType Name="Inventories">
+					<Key>
+						<PropertyRef Name="Id" />
+						<PropertyRef Name="Date" />
+					</Key>
+					<Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+					<Property Name="Date" Type="datetime" Nullable="false" />
+					<Property Name="Amount" Type="float" Nullable="false" />
+					<Property Name="Sold" Type="float" Nullable="false" />
+					<Property Name="Lost" Type="float" Nullable="false" />
+					<Property Name="ProductId" Type="int" Nullable="false" />
+				</EntityType>
+				<EntityType Name="StoreUser">
+					<Key>
+						<PropertyRef Name="Stores_Id" />
+						<PropertyRef Name="Users_Id" />
+					</Key>
+					<Property Name="Stores_Id" Type="int" Nullable="false" />
+					<Property Name="Users_Id" Type="int" Nullable="false" />
+				</EntityType>
+				<Association Name="CompanyUser">
+					<End Role="Company" Type="Inventory.Store.Companies" Multiplicity="1" />
+					<End Role="User" Type="Inventory.Store.Users" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="Company">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="User">
+							<PropertyRef Name="CompanyId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<Association Name="CompanyStore">
+					<End Role="Company" Type="Inventory.Store.Companies" Multiplicity="1" />
+					<End Role="Store" Type="Inventory.Store.Stores" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="Company">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="Store">
+							<PropertyRef Name="CompanyId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<Association Name="StoreProduct">
+					<End Role="Store" Type="Inventory.Store.Stores" Multiplicity="1" />
+					<End Role="Product" Type="Inventory.Store.Products" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="Store">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="Product">
+							<PropertyRef Name="StoreId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<Association Name="StoreProductCategory">
+					<End Role="Store" Type="Inventory.Store.Stores" Multiplicity="1" />
+					<End Role="ProductCategory" Type="Inventory.Store.ProductCategories" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="Store">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="ProductCategory">
+							<PropertyRef Name="StoreId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<Association Name="ProductCategoryProduct">
+					<End Role="ProductCategory" Type="Inventory.Store.ProductCategories" Multiplicity="1" />
+					<End Role="Product" Type="Inventory.Store.Products" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="ProductCategory">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="Product">
+							<PropertyRef Name="ProductCategoryId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<Association Name="ProductInventory">
+					<End Role="Product" Type="Inventory.Store.Products" Multiplicity="1" />
+					<End Role="Inventory" Type="Inventory.Store.Inventories" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="Product">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="Inventory">
+							<PropertyRef Name="ProductId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<Association Name="FK_StoreUser_Store">
+					<End Role="Store" Type="Inventory.Store.Stores" Multiplicity="1" />
+					<End Role="StoreUser" Type="Inventory.Store.StoreUser" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="Store">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="StoreUser">
+							<PropertyRef Name="Stores_Id" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<Association Name="FK_StoreUser_User">
+					<End Role="StoreUser" Type="Inventory.Store.StoreUser" Multiplicity="*" />
+					<End Role="User" Type="Inventory.Store.Users" Multiplicity="1" />
+					<ReferentialConstraint>
+						<Principal Role="User">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="StoreUser">
+							<PropertyRef Name="Users_Id" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+			</Schema>
+		</edmx:StorageModels>
+		<!-- CSDL content -->
+		<edmx:ConceptualModels>
+			<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm"
+			        xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration"
+			        xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Inventory"
+			        Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"
+			        annotation:UseStrongSpatialTypes="false">
+				<EntityContainer Name="InventoryContainer" annotation:LazyLoadingEnabled="true">
+					<EntitySet Name="Users" EntityType="Inventory.User" />
+					<EntitySet Name="Companies" EntityType="Inventory.Company" />
+					<AssociationSet Name="CompanyUser" Association="Inventory.CompanyUser">
+						<End Role="Company" EntitySet="Companies" />
+						<End Role="User" EntitySet="Users" />
+					</AssociationSet>
+					<EntitySet Name="Stores" EntityType="Inventory.Store" />
+					<AssociationSet Name="CompanyStore" Association="Inventory.CompanyStore">
+						<End Role="Company" EntitySet="Companies" />
+						<End Role="Store" EntitySet="Stores" />
+					</AssociationSet>
+					<AssociationSet Name="StoreUser" Association="Inventory.StoreUser">
+						<End Role="Store" EntitySet="Stores" />
+						<End Role="User" EntitySet="Users" />
+					</AssociationSet>
+					<EntitySet Name="Products" EntityType="Inventory.Product" />
+					<AssociationSet Name="StoreProduct" Association="Inventory.StoreProduct">
+						<End Role="Store" EntitySet="Stores" />
+						<End Role="Product" EntitySet="Products" />
+					</AssociationSet>
+					<EntitySet Name="ProductCategories" EntityType="Inventory.ProductCategory" />
+					<AssociationSet Name="StoreProductCategory" Association="Inventory.StoreProductCategory">
+						<End Role="Store" EntitySet="Stores" />
+						<End Role="ProductCategory" EntitySet="ProductCategories" />
+					</AssociationSet>
+					<AssociationSet Name="ProductCategoryProduct" Association="Inventory.ProductCategoryProduct">
+						<End Role="ProductCategory" EntitySet="ProductCategories" />
+						<End Role="Product" EntitySet="Products" />
+					</AssociationSet>
+					<EntitySet Name="Inventories" EntityType="Inventory.Inventory" />
+					<AssociationSet Name="ProductInventory" Association="Inventory.ProductInventory">
+						<End Role="Product" EntitySet="Products" />
+						<End Role="Inventory" EntitySet="Inventories" />
+					</AssociationSet>
+				</EntityContainer>
+				<EntityType Name="User">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Email" Type="String" Nullable="false" FixedLength="false" MaxLength="200" />
+					<Property Name="Password" Type="String" Nullable="false" MaxLength="200" />
+					<Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" />
+					<Property Name="LastName" Type="String" Nullable="false" MaxLength="100" />
+					<NavigationProperty Name="Company" Relationship="Inventory.CompanyUser" FromRole="User" ToRole="Company" />
+					<Property Name="CompanyId" Type="Int32" Nullable="false" />
+					<NavigationProperty Name="Stores" Relationship="Inventory.StoreUser" FromRole="User" ToRole="Store" />
+				</EntityType>
+				<EntityType Name="Company">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Name" Type="String" Nullable="false" MaxLength="200" />
+					<Property Name="Address" Type="String" Nullable="false" MaxLength="200" />
+					<Property Name="City" Type="String" Nullable="false" />
+					<Property Name="State" Type="String" Nullable="false" MaxLength="50" />
+					<Property Name="PostalCode" Type="String" Nullable="false" MaxLength="20" />
+					<NavigationProperty Name="Users" Relationship="Inventory.CompanyUser" FromRole="Company" ToRole="User" />
+					<NavigationProperty Name="Stores" Relationship="Inventory.CompanyStore" FromRole="Company" ToRole="Store" />
+				</EntityType>
+				<Association Name="CompanyUser">
+					<End Type="Inventory.Company" Role="Company" Multiplicity="1" />
+					<End Type="Inventory.User" Role="User" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="Company">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="User">
+							<PropertyRef Name="CompanyId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<EntityType Name="Store">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Name" Type="String" Nullable="false" />
+					<NavigationProperty Name="Company" Relationship="Inventory.CompanyStore" FromRole="Store" ToRole="Company" />
+					<Property Name="CompanyId" Type="Int32" Nullable="false" />
+					<NavigationProperty Name="Users" Relationship="Inventory.StoreUser" FromRole="Store" ToRole="User" />
+					<NavigationProperty Name="Products" Relationship="Inventory.StoreProduct" FromRole="Store" ToRole="Product" />
+					<NavigationProperty Name="ProductCategories" Relationship="Inventory.StoreProductCategory" FromRole="Store"
+					                    ToRole="ProductCategory" />
+				</EntityType>
+				<Association Name="CompanyStore">
+					<End Type="Inventory.Company" Role="Company" Multiplicity="1" />
+					<End Type="Inventory.Store" Role="Store" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="Company">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="Store">
+							<PropertyRef Name="CompanyId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<Association Name="StoreUser">
+					<End Type="Inventory.Store" Role="Store" Multiplicity="*" />
+					<End Type="Inventory.User" Role="User" Multiplicity="*" />
+				</Association>
+				<EntityType Name="Product">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Name" Type="String" Nullable="false" MaxLength="500" />
+					<Property Name="Description" Type="String" Nullable="false" MaxLength="Max" />
+					<Property Name="Units" Type="String" Nullable="false" />
+					<NavigationProperty Name="Store" Relationship="Inventory.StoreProduct" FromRole="Product" ToRole="Store" />
+					<Property Name="Cost" Type="Decimal" Nullable="false" />
+					<Property Name="Price" Type="String" Nullable="false" />
+					<Property Name="StoreId" Type="Int32" Nullable="false" />
+					<NavigationProperty Name="ProductCategory" Relationship="Inventory.ProductCategoryProduct" FromRole="Product"
+					                    ToRole="ProductCategory" />
+					<Property Name="ProductCategoryId" Type="Int32" Nullable="false" />
+					<NavigationProperty Name="Inventories" Relationship="Inventory.ProductInventory" FromRole="Product"
+					                    ToRole="Inventory" />
+				</EntityType>
+				<Association Name="StoreProduct">
+					<End Type="Inventory.Store" Role="Store" Multiplicity="1" />
+					<End Type="Inventory.Product" Role="Product" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="Store">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="Product">
+							<PropertyRef Name="StoreId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<EntityType Name="ProductCategory">
+					<Key>
+						<PropertyRef Name="Id" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Name" Type="String" Nullable="false" MaxLength="200" />
+					<NavigationProperty Name="Store" Relationship="Inventory.StoreProductCategory" FromRole="ProductCategory"
+					                    ToRole="Store" />
+					<Property Name="StoreId" Type="Int32" Nullable="false" />
+					<NavigationProperty Name="Products" Relationship="Inventory.ProductCategoryProduct" FromRole="ProductCategory"
+					                    ToRole="Product" />
+				</EntityType>
+				<Association Name="StoreProductCategory">
+					<End Type="Inventory.Store" Role="Store" Multiplicity="1" />
+					<End Type="Inventory.ProductCategory" Role="ProductCategory" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="Store">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="ProductCategory">
+							<PropertyRef Name="StoreId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<Association Name="ProductCategoryProduct">
+					<End Type="Inventory.ProductCategory" Role="ProductCategory" Multiplicity="1" />
+					<End Type="Inventory.Product" Role="Product" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="ProductCategory">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="Product">
+							<PropertyRef Name="ProductCategoryId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<EntityType Name="Inventory">
+					<Key>
+						<PropertyRef Name="Id" />
+						<PropertyRef Name="Date" />
+					</Key>
+					<Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+					<Property Name="Date" Type="DateTime" Nullable="false" />
+					<Property Name="Amount" Type="Double" Nullable="false" />
+					<Property Name="Sold" Type="Double" Nullable="false" />
+					<Property Name="Lost" Type="Double" Nullable="false" />
+					<NavigationProperty Name="Product" Relationship="Inventory.ProductInventory" FromRole="Inventory" ToRole="Product" />
+					<Property Name="ProductId" Type="Int32" Nullable="false" />
+				</EntityType>
+				<Association Name="ProductInventory">
+					<End Type="Inventory.Product" Role="Product" Multiplicity="1" />
+					<End Type="Inventory.Inventory" Role="Inventory" Multiplicity="*" />
+					<ReferentialConstraint>
+						<Principal Role="Product">
+							<PropertyRef Name="Id" />
+						</Principal>
+						<Dependent Role="Inventory">
+							<PropertyRef Name="ProductId" />
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+			</Schema>
+		</edmx:ConceptualModels>
+		<!-- C-S mapping content -->
+		<edmx:Mappings>
+			<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+				<EntityContainerMapping StorageEntityContainer="InventoryStoreContainer" CdmEntityContainer="InventoryContainer">
+					<EntitySetMapping Name="Users">
+						<EntityTypeMapping TypeName="IsTypeOf(Inventory.User)">
+							<MappingFragment StoreEntitySet="Users">
+								<ScalarProperty Name="Id" ColumnName="Id" />
+								<ScalarProperty Name="Email" ColumnName="Email" />
+								<ScalarProperty Name="Password" ColumnName="Password" />
+								<ScalarProperty Name="FirstName" ColumnName="FirstName" />
+								<ScalarProperty Name="LastName" ColumnName="LastName" />
+								<ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+							</MappingFragment>
+						</EntityTypeMapping>
+					</EntitySetMapping>
+					<EntitySetMapping Name="Companies">
+						<EntityTypeMapping TypeName="IsTypeOf(Inventory.Company)">
+							<MappingFragment StoreEntitySet="Companies">
+								<ScalarProperty Name="Id" ColumnName="Id" />
+								<ScalarProperty Name="Name" ColumnName="Name" />
+								<ScalarProperty Name="Address" ColumnName="Address" />
+								<ScalarProperty Name="City" ColumnName="City" />
+								<ScalarProperty Name="State" ColumnName="State" />
+								<ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+							</MappingFragment>
+						</EntityTypeMapping>
+					</EntitySetMapping>
+					<EntitySetMapping Name="Stores">
+						<EntityTypeMapping TypeName="IsTypeOf(Inventory.Store)">
+							<MappingFragment StoreEntitySet="Stores">
+								<ScalarProperty Name="Id" ColumnName="Id" />
+								<ScalarProperty Name="Name" ColumnName="Name" />
+								<ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+							</MappingFragment>
+						</EntityTypeMapping>
+					</EntitySetMapping>
+					<EntitySetMapping Name="Products">
+						<EntityTypeMapping TypeName="IsTypeOf(Inventory.Product)">
+							<MappingFragment StoreEntitySet="Products">
+								<ScalarProperty Name="Id" ColumnName="Id" />
+								<ScalarProperty Name="Name" ColumnName="Name" />
+								<ScalarProperty Name="Description" ColumnName="Description" />
+								<ScalarProperty Name="Units" ColumnName="Units" />
+								<ScalarProperty Name="Cost" ColumnName="Cost" />
+								<ScalarProperty Name="Price" ColumnName="Price" />
+								<ScalarProperty Name="StoreId" ColumnName="StoreId" />
+								<ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+							</MappingFragment>
+						</EntityTypeMapping>
+					</EntitySetMapping>
+					<EntitySetMapping Name="ProductCategories">
+						<EntityTypeMapping TypeName="IsTypeOf(Inventory.ProductCategory)">
+							<MappingFragment StoreEntitySet="ProductCategories">
+								<ScalarProperty Name="Id" ColumnName="Id" />
+								<ScalarProperty Name="Name" ColumnName="Name" />
+								<ScalarProperty Name="StoreId" ColumnName="StoreId" />
+							</MappingFragment>
+						</EntityTypeMapping>
+					</EntitySetMapping>
+					<EntitySetMapping Name="Inventories">
+						<EntityTypeMapping TypeName="IsTypeOf(Inventory.Inventory)">
+							<MappingFragment StoreEntitySet="Inventories">
+								<ScalarProperty Name="Id" ColumnName="Id" />
+								<ScalarProperty Name="Date" ColumnName="Date" />
+								<ScalarProperty Name="Amount" ColumnName="Amount" />
+								<ScalarProperty Name="Sold" ColumnName="Sold" />
+								<ScalarProperty Name="Lost" ColumnName="Lost" />
+								<ScalarProperty Name="ProductId" ColumnName="ProductId" />
+							</MappingFragment>
+						</EntityTypeMapping>
+					</EntitySetMapping>
+					<AssociationSetMapping Name="StoreUser" TypeName="Inventory.StoreUser" StoreEntitySet="StoreUser">
+						<EndProperty Name="Store">
+							<ScalarProperty Name="Id" ColumnName="Stores_Id" />
+						</EndProperty>
+						<EndProperty Name="User">
+							<ScalarProperty Name="Id" ColumnName="Users_Id" />
+						</EndProperty>
+					</AssociationSetMapping>
+				</EntityContainerMapping>
+			</Mapping>
+		</edmx:Mappings>
+	</edmx:Runtime>
+	<!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+	<edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+		<edmx:Connection>
+			<DesignerInfoPropertySet>
+				<DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+			</DesignerInfoPropertySet>
+		</edmx:Connection>
+		<edmx:Options>
+			<DesignerInfoPropertySet>
+				<DesignerProperty Name="ValidateOnBuild" Value="true" />
+				<DesignerProperty Name="EnablePluralization" Value="True" />
+				<DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+				<DesignerProperty Name="UseLegacyProvider" Value="False" />
+			</DesignerInfoPropertySet>
+		</edmx:Options>
+		<!-- Diagram content (shape and connector positions) -->
+		<edmx:Diagrams>
+		</edmx:Diagrams>
+	</edmx:Designer>
+</edmx:Edmx>

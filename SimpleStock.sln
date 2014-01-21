@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStock.Data", "SimpleStock.Data\SimpleStock.Data.csproj", "{0B2E2767-B67B-4BD5-9BC9-F4C89A90686F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStock.Core", "SimpleStock.Core\SimpleStock.Core.csproj", "{3CF7E926-FFCA-4449-9E52-2673CD02EF05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStock.Test", "SimpleStock.Test\SimpleStock.Test.csproj", "{DAECD5B2-B316-4017-BF51-E9F712362F65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStock.Infrastructure", "SimpleStock.Infrastructure\SimpleStock.Infrastructure.csproj", "{72B4F373-A0FC-44AF-8BDC-95FB398397F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStock.Web.FrontEnd", "SimpleStock.Web.FrontEnd\SimpleStock.Web.FrontEnd.csproj", "{9E0AB3D7-79B7-4654-B424-91168E084423}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B2E2767-B67B-4BD5-9BC9-F4C89A90686F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B2E2767-B67B-4BD5-9BC9-F4C89A90686F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B2E2767-B67B-4BD5-9BC9-F4C89A90686F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B2E2767-B67B-4BD5-9BC9-F4C89A90686F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CF7E926-FFCA-4449-9E52-2673CD02EF05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF7E926-FFCA-4449-9E52-2673CD02EF05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF7E926-FFCA-4449-9E52-2673CD02EF05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF7E926-FFCA-4449-9E52-2673CD02EF05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAECD5B2-B316-4017-BF51-E9F712362F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAECD5B2-B316-4017-BF51-E9F712362F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAECD5B2-B316-4017-BF51-E9F712362F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAECD5B2-B316-4017-BF51-E9F712362F65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B4F373-A0FC-44AF-8BDC-95FB398397F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B4F373-A0FC-44AF-8BDC-95FB398397F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B4F373-A0FC-44AF-8BDC-95FB398397F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B4F373-A0FC-44AF-8BDC-95FB398397F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E0AB3D7-79B7-4654-B424-91168E084423}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0AB3D7-79B7-4654-B424-91168E084423}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0AB3D7-79B7-4654-B424-91168E084423}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0AB3D7-79B7-4654-B424-91168E084423}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
+	EndGlobalSection
+EndGlobal
