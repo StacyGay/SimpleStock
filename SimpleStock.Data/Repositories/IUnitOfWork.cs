@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Data.Entity;
 
 namespace SimpleStock.Data.Repositories
 {
-	public interface IUnitOfWork : IDisposable
+	public interface IUnitOfWork<TContext> : IDisposable
+		where TContext : DbContext
 	{
-		IRepository<T> Repository<T>() where T : class;
+		IRepository<TEntity> Repository<TEntity>() where TEntity : class;
 		void Save();
-		void Dispose();
+		new void Dispose();
 		void Dispose(bool disposing);
 	}
 }

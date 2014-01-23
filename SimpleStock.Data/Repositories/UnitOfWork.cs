@@ -8,24 +8,25 @@ using System.Threading.Tasks;
 
 namespace SimpleStock.Data.Repositories
 {
-	public class UnitOfWork : IUnitOfWork
+	public class UnitOfWork<TContext> : IUnitOfWork<TContext>
+		where TContext : DbContext
 	{
 		private readonly DbContext _context;
 
 		private bool _disposed;
 		private Hashtable _repositories;
 
-		public UnitOfWork(DbContext context)
+		public UnitOfWork(TContext context)
 		{
 			_context = context;
 		}
-
-		public IRepository<T> Repository<T>() where T : class
+		
+		public IRepository<TEntity> Repository<TEntity>() where TEntity : class
 		{
 			if (_repositories == null)
 				_repositories = new Hashtable();
 
-			var type = typeof(T).Name;
+			var type = typeof(TEntity).Name;
 
 			if (!_repositories.ContainsKey(type))
 			{
@@ -33,12 +34,12 @@ namespace SimpleStock.Data.Repositories
 
 				var repositoryInstance =
 					Activator.CreateInstance(repositoryType
-							.MakeGenericType(typeof(T)), _context);
+							.MakeGenericType(typeof(TEntity)), _context);
 
 				_repositories.Add(type, repositoryInstance);
 			}
 
-			return (IRepository<T>)_repositories[type];
+			return (IRepository<TEntity>)_repositories[type];
 		}
 
 		public void Save()

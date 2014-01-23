@@ -16,9 +16,8 @@ namespace SimpleStock.Web.FrontEnd
 			routes.MapRoute(
 				name: "Default",
 				url: "{controller}/{action}/{id}",
-				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-				namespaces: new [] { "SimpleStock.Web.FrontEnd.Areas.Home" }
-			).DataTokens.Add("Area","Home");
+				defaults: new {controller = "Home", action = "Index", id = UrlParameter.Optional}
+				);
 		}
 	}
 }

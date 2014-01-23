@@ -54,39 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Company.cs">
-      <DependentUpon>Inventory.tt</DependentUpon>
+    <Compile Include="Migrations\201401232009109_AddErrorLog.cs" />
+    <Compile Include="Migrations\201401232009109_AddErrorLog.Designer.cs">
+      <DependentUpon>201401232009109_AddErrorLog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Inventory.Context.cs">
-      <DependentUpon>Inventory.Context.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Models\Inventory.cs">
-      <DependentUpon>Inventory.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Inventory.Designer.cs">
-      <DependentUpon>Inventory.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Models\Inventory1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Inventory.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>Inventory.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProductCategory.cs">
-      <DependentUpon>Inventory.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Store.cs">
-      <DependentUpon>Inventory.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>Inventory.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\ErrorLog.cs" />
+    <Compile Include="Models\IInventoryContext.cs" />
+    <Compile Include="Models\ILoggingContext.cs" />
+    <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\InventoryContext.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Security\SaltedHash.cs" />
+    <Compile Include="Models\Store.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
@@ -97,32 +80,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Models\Inventory.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Inventory.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\Inventory.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Inventory.edmx</DependentUpon>
-      <LastGenOutput>Inventory.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Models\Inventory.edmx.diagram">
-      <DependentUpon>Inventory.edmx</DependentUpon>
-    </None>
-    <None Include="Models\Inventory.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Inventory.edmx</DependentUpon>
-      <LastGenOutput>Inventory1.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Models\Inventory.edmx.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Repositories\RepoPatternReadme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201401232009109_AddErrorLog.resx">
+      <DependentUpon>201401232009109_AddErrorLog.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
