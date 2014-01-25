@@ -14,6 +14,9 @@
 
 //grunt-start
 /// <reference path="Controllers/MainController.ts" />
+/// <reference path="Models/Inventory.ts" />
+/// <reference path="Services/InventoryService.ts" />
+/// <reference path="Services/ResourceConfig.ts" />
 //grunt-end
 
 /// <reference path="Controllers/Controllers.ts" />

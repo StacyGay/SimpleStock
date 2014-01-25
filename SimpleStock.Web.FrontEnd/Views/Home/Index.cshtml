@@ -1,15 +1,14 @@
-﻿@using System.Collections.Specialized
-
+﻿@using System.Web.Optimization
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 @section Scripts{
-    @*@Scripts.Render("~/app")*@
+    <script src="/Scripts/app.js"></script>
 }
 
-<h2>Index</h2>
+<div class="container" ng-app>
 
-<div id="ss-messageHolder"></div>
+</div>
 

@@ -157,19 +157,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\Bootstrapper.cs" />
-    <Compile Include="Controllers\CompaniesController.cs" />
-    <Compile Include="Controllers\InventoriesController.cs" />
-    <Compile Include="Controllers\ProductCategoriesController.cs" />
-    <Compile Include="Controllers\StoresController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Authorization\BasicAuthAttribute.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Authorization\BasicAuthMessageHandler.cs" />
     <Compile Include="Models\Authorization\UserAuthorization.cs" />
+    <Compile Include="Models\LoginRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +180,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\underscore.min.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -203,8 +202,6 @@
     <Content Include="Scripts\gruntfile.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
-    <Content Include="Scripts\underscore.js" />
-    <Content Include="Scripts\underscore.min.js" />
     <Content Include="Unity.Mvc4.README.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -214,24 +211,30 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Scripts\underscore.min.map" />
     <Content Include="Scripts\package.json" />
-    <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\underscore.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\app\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\app\app.ts" />
+    <TypeScriptCompile Include="Scripts\app\Controllers\AccountController.ts" />
     <TypeScriptCompile Include="Scripts\app\Controllers\Controllers.ts" />
     <TypeScriptCompile Include="Scripts\app\Controllers\MainController.ts" />
     <TypeScriptCompile Include="Scripts\app\Directives\Directives.ts" />
+    <TypeScriptCompile Include="Scripts\app\Models\Account.ts" />
+    <TypeScriptCompile Include="Scripts\app\Models\Company.ts" />
+    <TypeScriptCompile Include="Scripts\app\Models\Inventory.ts" />
+    <TypeScriptCompile Include="Scripts\app\Models\Store.ts" />
+    <TypeScriptCompile Include="Scripts\app\Models\User.ts" />
     <TypeScriptCompile Include="Scripts\app\reference.ts" />
+    <TypeScriptCompile Include="Scripts\app\Services\InventoryService.ts" />
+    <TypeScriptCompile Include="Scripts\app\Services\ResourceConfig.ts" />
     <TypeScriptCompile Include="Scripts\app\Services\Services.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
