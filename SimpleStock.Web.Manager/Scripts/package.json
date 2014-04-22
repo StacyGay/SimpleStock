@@ -1,0 +1,22 @@
+{
+  "name": "SimpleStock.Web.Manager",
+  "version": "0.0.1",
+  "description": "Web front end for the SimpleStock inventory system",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "~3.6.0",
+    "gulp-clean": "~0.2.4",
+    "gulp-concat": "~2.2.0",
+    "gulp-uglify": "~0.2.1",
+    "gulp-jshint": "~1.5.3",
+    "gulp-rename": "~1.2.0",
+    "gulp-notify": "~1.2.5",
+    "jshint": "~2.5.0"
+  },
+  "license": "BSD-2-Clause"
+}

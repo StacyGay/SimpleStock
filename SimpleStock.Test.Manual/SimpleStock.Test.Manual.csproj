@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42EC06EC-2A53-4355-95DD-88184980AFCD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimpleStock.Test.Manual</RootNamespace>
+    <AssemblyName>SimpleStock.Test.Manual</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleStock.Core\SimpleStock.Core.csproj">
+      <Project>{3cf7e926-ffca-4449-9e52-2673cd02ef05}</Project>
+      <Name>SimpleStock.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleStock.Data\SimpleStock.Data.csproj">
+      <Project>{0b2e2767-b67b-4bd5-9bc9-f4c89a90686f}</Project>
+      <Name>SimpleStock.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleStock.Infrastructure\SimpleStock.Infrastructure.csproj">
+      <Project>{72b4f373-a0fc-44af-8bdc-95fb398397f9}</Project>
+      <Name>SimpleStock.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleStock.Test\SimpleStock.Test.csproj">
+      <Project>{daecd5b2-b316-4017-bf51-e9f712362f65}</Project>
+      <Name>SimpleStock.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleStock.Web.FrontEnd\SimpleStock.Web.FrontEnd.csproj">
+      <Project>{9e0ab3d7-79b7-4654-b424-91168e084423}</Project>
+      <Name>SimpleStock.Web.FrontEnd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleStock.Web.Service\SimpleStock.Web.Service.csproj">
+      <Project>{1fc18512-a3f8-4fd8-a4d1-b9f2ede0d7ff}</Project>
+      <Name>SimpleStock.Web.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Account</h2>
+
+<div ng-controller="AccountController">
+    <fieldset>
+        <legend>Account Information</legend>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" ng-model="vm.Account.User.Email" name="email" placeholder="Enter email">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" ng-model="vm.Account.User.Password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="passwordConfirm">Confirm Password</label>
+                <input type="password" class="form-control" ng-model="vm.Account.passwordConfirm" name="passwordConfirm" placeholder="Confirm password">
+            </div>    
+        </div>
+        
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" ng-model="vm.Account.User.FirstName" name="firstName" placeholder="First name">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" ng-model="vm.Account.User.LastName" name="lastName" placeholder="Last name">
+            </div>
+        </div>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Company Information</legend>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="companyName">Company Name</label>
+                <input type="text" class="form-control" ng-model="vm.Account.Company.Name" name="companyName" placeholder="Company name">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-8">
+                <label for="address">Company Address</label>
+                <input type="text" class="form-control" ng-model="vm.Account.Company.Address" name="address" placeholder="Company address">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="city">Company City</label>
+                <input type="text" class="form-control" ng-model="vm.Account.Company.City" name="city" placeholder="Company city">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="state">Company State</label>
+                <input type="text" class="form-control" ng-model="vm.Account.Company.State" name="state" placeholder="Company state">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="postalCode">Company Postal Code</label>
+                <input type="text" class="form-control" ng-model="vm.Account.Company.PostalCode" name="postalCode" placeholder="Company postal code">
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="form-group col-md-8">
+                <label for="storeName">Initial Store Name</label>
+                <input type="text" class="form-control" ng-model="vm.Account.Stores[0].Name" name="storeName" placeholder="Store name">
+                <span class="help-block">
+                    Your inventory can be divided into different stores, departments or points of sale.
+                    This is just a starting store, others can be added later.
+                </span>
+            </div>    
+        </div>
+    </fieldset>
+    
+
+    <button class="btn btn-success" ng-click="vm.CreateAccount()">Submit</button>
+</div>
