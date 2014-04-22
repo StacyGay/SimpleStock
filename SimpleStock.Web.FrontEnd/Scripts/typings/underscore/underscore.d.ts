@@ -100,7 +100,7 @@ interface UnderscoreStatic {
 	* @param iterator Iterator function for each property on `obj`.
 	* @param context 'this' object in `iterator`, optional.
 	**/
-	each<T extends {}>(
+	each<T>(
 		object: _.Dictionary<T>,
 		iterator: _.ObjectIterator<T, void>,
 		context?: any): void;
@@ -116,7 +116,7 @@ interface UnderscoreStatic {
 	/**
 	* @see _.each
 	**/
-	forEach<T extends {}>(
+	forEach<T>(
 		object: _.Dictionary<T>,
 		iterator: _.ObjectIterator<T, void >,
 		context?: any): void;
@@ -142,7 +142,7 @@ interface UnderscoreStatic {
 	* @param context `this` object in `iterator`, optional.
 	* @return The mapped object result.
 	**/
-	map<T extends {}, TResult>(
+	map<T, TResult>(
 		object: _.Dictionary<T>,
 		iterator: _.ObjectIterator<T, TResult>,
 		context?: any): TResult[];
@@ -158,7 +158,7 @@ interface UnderscoreStatic {
 	/**
 	* @see _.map
 	**/
-	collect<T extends {}, TResult>(
+	collect<T, TResult>(
 		object: _.Dictionary<T>,
 		iterator: _.ObjectIterator<T, TResult>,
 		context?: any): TResult[];
@@ -499,7 +499,7 @@ interface UnderscoreStatic {
 	countBy<T>(
 		list: _.Collection<T>,
 		iterator?: _.ListIterator<T, any>,
-		context?: any): _.Dictionary<number[]>;
+		context?: any): _.Dictionary<number>;
 
 	/**
 	* @see _.countBy
@@ -508,7 +508,7 @@ interface UnderscoreStatic {
 	countBy<T>(
 		list: _.Collection<T>,
 		iterator: string,
-		context?: any): _.Dictionary<number[]>;
+		context?: any): _.Dictionary<number>;
 
 	/**
 	* Returns a shuffled copy of the list, using a version of the Fisher-Yates shuffle.
@@ -1612,13 +1612,13 @@ interface Underscore<T> {
 	* Wrapped type `any[]`.
 	* @see _.countBy
 	**/
-	countBy(iterator?: _.ListIterator<T, any>, context?: any): _.Dictionary<number[]>;
+	countBy(iterator?: _.ListIterator<T, any>, context?: any): _.Dictionary<number>;
 
 	/**
 	* Wrapped type `any[]`.
 	* @see _.countBy
 	**/
-	countBy(iterator: string, context?: any): _.Dictionary<number[]>;
+	countBy(iterator: string, context?: any): _.Dictionary<number>;
 
 	/**
 	* Wrapped type `any[]`.

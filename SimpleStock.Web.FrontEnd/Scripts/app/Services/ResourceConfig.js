@@ -15,7 +15,6 @@ var Services;
             this.queryDescriptor = {
                 method: "GET",
                 isArray: true,
-                params: undefined,
                 header: undefined,
                 url: ""
             };
@@ -23,7 +22,6 @@ var Services;
             this.postDescriptor = {
                 method: "POST",
                 isArray: true,
-                params: undefined,
                 header: undefined,
                 url: ""
             };
@@ -31,7 +29,6 @@ var Services;
             this.updateDescriptor = {
                 method: "PUT",
                 isArray: true,
-                params: undefined,
                 header: undefined,
                 url: ""
             };
@@ -39,7 +36,6 @@ var Services;
             this.deleteDescriptor = {
                 method: "DELETE",
                 isArray: true,
-                params: undefined,
                 header: undefined,
                 url: ""
             };

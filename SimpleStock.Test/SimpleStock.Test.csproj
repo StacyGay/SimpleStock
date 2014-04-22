@@ -34,16 +34,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Moq">
-      <HintPath>..\packages\Moq.4.2.1312.1622\lib\net40\Moq.dll</HintPath>
+      <HintPath>..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Ploeh.AutoFixture">
-      <HintPath>..\packages\AutoFixture.3.16.4\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+      <HintPath>..\packages\AutoFixture.3.18.1\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Ploeh.AutoFixture.AutoMoq">
-      <HintPath>..\packages\AutoFixture.AutoMoq.3.16.4\lib\net40\Ploeh.AutoFixture.AutoMoq.dll</HintPath>
+      <HintPath>..\packages\AutoFixture.AutoMoq.3.18.1\lib\net40\Ploeh.AutoFixture.AutoMoq.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Ploeh.AutoFixture.Xunit">
-      <HintPath>..\packages\AutoFixture.Xunit.3.16.4\lib\net40\Ploeh.AutoFixture.Xunit.dll</HintPath>
+      <HintPath>..\packages\AutoFixture.Xunit.3.18.1\lib\net40\Ploeh.AutoFixture.Xunit.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStock.Data", "SimpleStock.Data\SimpleStock.Data.csproj", "{0B2E2767-B67B-4BD5-9BC9-F4C89A90686F}"
 EndProject
@@ -12,6 +12,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStock.Infrastructure", "SimpleStock.Infrastructure\SimpleStock.Infrastructure.csproj", "{72B4F373-A0FC-44AF-8BDC-95FB398397F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStock.Web.FrontEnd", "SimpleStock.Web.FrontEnd\SimpleStock.Web.FrontEnd.csproj", "{9E0AB3D7-79B7-4654-B424-91168E084423}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStock.Web.Service", "SimpleStock.Web.Service\SimpleStock.Web.Service.csproj", "{1FC18512-A3F8-4FD8-A4D1-B9F2EDE0D7FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStock.Test.Manual", "SimpleStock.Test.Manual\SimpleStock.Test.Manual.csproj", "{42EC06EC-2A53-4355-95DD-88184980AFCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStock.Web.Manager", "SimpleStock.Web.Manager\SimpleStock.Web.Manager.csproj", "{62EA5BF0-35FA-42A1-B20C-991536067BA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{9E0AB3D7-79B7-4654-B424-91168E084423}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E0AB3D7-79B7-4654-B424-91168E084423}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E0AB3D7-79B7-4654-B424-91168E084423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FC18512-A3F8-4FD8-A4D1-B9F2EDE0D7FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FC18512-A3F8-4FD8-A4D1-B9F2EDE0D7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FC18512-A3F8-4FD8-A4D1-B9F2EDE0D7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FC18512-A3F8-4FD8-A4D1-B9F2EDE0D7FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42EC06EC-2A53-4355-95DD-88184980AFCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42EC06EC-2A53-4355-95DD-88184980AFCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42EC06EC-2A53-4355-95DD-88184980AFCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42EC06EC-2A53-4355-95DD-88184980AFCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62EA5BF0-35FA-42A1-B20C-991536067BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62EA5BF0-35FA-42A1-B20C-991536067BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62EA5BF0-35FA-42A1-B20C-991536067BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62EA5BF0-35FA-42A1-B20C-991536067BA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
